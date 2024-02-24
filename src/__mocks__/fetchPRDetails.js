@@ -6,7 +6,10 @@
  * @param {Object} options - An options object.
  * @param {string} options.githubToken - The GitHub token.
  */
-module.exports = function fetchPRDetails() {
+module.exports = function fetchPRDetails(githubContext, prNumber) {
+  if (!githubContext) throw new Error(`githubContext is ${githubContext}`);
+  if (!prNumber) throw new Error(`prNumber is ${prNumber}`);
+
   return new Promise((resolve) => {
     resolve({
       url: 'https://api.github.com/repos/user/repo/pulls/1',

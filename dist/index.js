@@ -29170,7 +29170,7 @@ module.exports = async function generateBuildNotes(
 
       lines.push('');
 
-      await addPRCommitsInfoToLines(lines, prNumber, {
+      await addPRCommitsInfoToLines(lines, githubContext.payload.number, {
         githubContext,
         githubToken,
         debug,
