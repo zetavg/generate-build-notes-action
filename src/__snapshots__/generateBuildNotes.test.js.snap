@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateBuildNotes generates build notes correctly for a pull_request event 1`] = `
+"Build of PR #1: This is the title of the PR (by @user) [main ← example-branch]
+
+This is the description of the PR. [...]
+
+Commits:
+ • [85007495] commit 1 - @user1
+ • [b8124acd] commit 2 - User Two
+ • [992841f2] commit 3 - @user1
+
+View pull request: https://github.com/user/repo/pull/1"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a pull_request event 2`] = `
+"Build of PR #1: This is the title of the PR (by @user) [main ← example-branch]
+
+This is a short description.
+
+Commits:
+ • [85007495] commit 1 - @user1
+ • [b8124acd] commit 2 - User Two
+ • [992841f2] commit 3 - @user1
+
+View pull request: https://github.com/user/repo/pull/1"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a pull_request event 3`] = `
+"Build of PR #1: This is the title of the PR (by @user) [main ← example-branch]
+
+(No description provided)
+
+Commits:
+ • [85007495] commit 1 - @user1
+ • [b8124acd] commit 2 - User Two
+ • [992841f2] commit 3 - @user1
+
+View pull request: https://github.com/user/repo/pull/1"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a push event 1`] = `
+"Build of branch "main": commit 3
+
+Latest commits:
+ • [11adb604] commit 3 - @user1
+ • [f52fdb2d] commit 2 - User Three, @user1
+ • [71427497] commit 1 - @user1, @user2"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a release event 1`] = `
+"v1.2.3 - This is the release title
+
+New Features
+
+ • Feature 1.
+ • Feature 2.
+ • Feature 3.
+ • Feature 4.
+
+Changes
+
+ • Change 1.
+ • Change 2. For more info, see this doc.
+
+Bug Fixes
+
+ • Fix bug 1.
+ • Fix bug 2. For more info, see https://example.com.
+
+Quoted message.
+
+See the full release note at https://github.com/user/repo/releases/tag/v1.2.3"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a release event 2`] = `
+"v1.2.3
+
+New Features
+
+ • Feature 1.
+ • Feature 2.
+ • Feature 3.
+ • Feature 4.
+
+Changes
+
+ • Change 1.
+ • Change 2. For more info, see this doc.
+
+Bug Fixes
+
+ • Fix bug 1.
+ • Fix bug 2. For more info, see https://example.com.
+
+Quoted message.
+
+See the full release note at https://github.com/user/repo/releases/tag/v1.2.3"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a schedule event 1`] = `
+"Scheduled build of branch "main"
+Last commit: [5964e4b0] this is a commit message - User"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a workflow_dispatch event 1`] = `
+"Manual build of "main", triggered by @user
+Last commit: [5964e4b0] this is a commit message - User"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a workflow_dispatch event as a PR build 1`] = `
+"Build of PR #1: This is the title of the PR (by @user) [main ← example-branch]
+
+This is the description of the PR. [...]
+
+Commits:
+ • [85007495] commit 1 - @user1
+ • [b8124acd] commit 2 - User Two
+ • [992841f2] commit 3 - @user1
+
+View pull request: https://github.com/user/repo/pull/1"
+`;

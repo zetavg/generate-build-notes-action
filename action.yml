@@ -1,0 +1,24 @@
+name: 'Generate Build Notes'
+description: 'Generate and outputs pure-text build notes for your builds on GitHub.'
+branding:
+  icon: align-left
+  color: blue
+inputs:
+  github-token:
+    description: 'Pass secrets.GITHUB_TOKEN to the action.'
+    type: string
+    required: true
+  pr-number:
+    description: 'The pull request number.'
+    type: number
+    required: false
+  debug:
+    description: 'Print debug info.'
+    required: false
+    default: false
+outputs:
+  build-notes:
+    description: ''
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
