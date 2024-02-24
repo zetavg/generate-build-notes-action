@@ -14,9 +14,11 @@ module.exports = function fetchPRCommits(
   { githubToken },
 ) {
   return new Promise((resolve, reject) => {
+    const hostname = new URL(githubContext.apiUrl).hostname;
+    const path = `/repos/${githubContext.payload.repository.full_name}/pulls/${prNumber}/commits`;
     const options = {
-      hostname: new URL(githubContext.apiUrl).hostname,
-      path: `/repos/${githubContext.payload.repository.full_name}/pulls/${prNumber}/commits`,
+      hostname,
+      path,
       method: 'GET',
       headers: {
         Authorization: `token ${githubToken}`,
@@ -35,11 +37,13 @@ module.exports = function fetchPRCommits(
         if (res.statusCode < 200 || res.statusCode >= 300) {
           reject(
             new Error(
-              `Failed to fetch PR commits: ${res.statusCode} - ${data}` +
+              `Failed to fetch PR commits: ${res.statusCode} - ${data} (https://${hostname}${path})` +
                 (() => {
                   if (res.statusCode === 403) {
                     return '\nPlease make sure that you have:\n\n```\npermissions:\n  contents: read\n  pull-requests: read\n```\n\nset on your job.';
                   }
+
+                  return '';
                 })(),
             ),
           );
