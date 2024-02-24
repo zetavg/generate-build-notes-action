@@ -29157,10 +29157,18 @@ module.exports = async function generateBuildNotes(
       return lines.join('\n');
     }
 
-    case 'pull_request': {
+    case 'pull_request':
+    case 'pull_request_target': {
       const lines = [];
+
+      const prNumber = githubContext.payload.number;
+      const prTitle = githubContext.payload.pull_request.title;
+      const prUser = githubContext.payload.pull_request.user;
+      const prBase = githubContext.payload.pull_request.base;
+      const prHead = githubContext.payload.pull_request.head;
+
       lines.push(
-        `Build of PR #${githubContext.payload.number}: ${githubContext.payload.pull_request.title} (by @${githubContext.payload.pull_request.user.login}) [${githubContext.payload.pull_request.base.ref} ← ${githubContext.payload.pull_request.head.ref}]`,
+        `Build of PR #${prNumber}: ${prTitle} (by @${prUser.login}) [${prBase.ref} ← ${prHead.repo.fork ? prHead.label : prHead.ref}]`,
       );
       lines.push('');
       const prSummary =

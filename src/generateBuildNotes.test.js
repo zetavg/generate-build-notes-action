@@ -6,6 +6,7 @@ const generateBuildNotes = require('./generateBuildNotes');
 
 const pushEventGithubContext = require('./mock-data/github-context/push.json');
 const prEventGithubContext = require('./mock-data/github-context/pull_request.json');
+const prTargetEventGithubContext = require('./mock-data/github-context/pull_request_target.json');
 const releaseEventGithubContext = require('./mock-data/github-context/release.json');
 const workflowDispatchEventGithubContext = require('./mock-data/github-context/workflow_dispatch.json');
 const scheduleEventGithubContext = require('./mock-data/github-context/schedule.json');
@@ -46,6 +47,44 @@ describe('generateBuildNotes', () => {
             ...prEventGithubContext.payload,
             pull_request: {
               ...prEventGithubContext.payload.pull_request,
+              body: '',
+            },
+          },
+        },
+        {},
+      ),
+    ).toMatchSnapshot();
+  });
+
+  it('generates build notes correctly for a pull_request_target event', async () => {
+    expect(
+      await generateBuildNotes(prTargetEventGithubContext, {}),
+    ).toMatchSnapshot();
+
+    expect(
+      await generateBuildNotes(
+        {
+          ...prTargetEventGithubContext,
+          payload: {
+            ...prTargetEventGithubContext.payload,
+            pull_request: {
+              ...prTargetEventGithubContext.payload.pull_request,
+              body: 'This is a short description.',
+            },
+          },
+        },
+        {},
+      ),
+    ).toMatchSnapshot();
+
+    expect(
+      await generateBuildNotes(
+        {
+          ...prTargetEventGithubContext,
+          payload: {
+            ...prTargetEventGithubContext.payload,
+            pull_request: {
+              ...prTargetEventGithubContext.payload.pull_request,
               body: '',
             },
           },

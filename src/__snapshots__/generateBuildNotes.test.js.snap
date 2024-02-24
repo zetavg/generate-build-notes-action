@@ -39,6 +39,45 @@ Commits:
 View pull request: https://github.com/user/repo/pull/1"
 `;
 
+exports[`generateBuildNotes generates build notes correctly for a pull_request_target event 1`] = `
+"Build of PR #1: This is the title of the PR (by @user-2) [main ← user-2:patch-1]
+
+This is the description of the PR. [...]
+
+Commits:
+ • [85007495] commit 1 - @user1
+ • [b8124acd] commit 2 - User Two
+ • [992841f2] commit 3 - @user1
+
+View pull request: https://github.com/user/repo/pull/1"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a pull_request_target event 2`] = `
+"Build of PR #1: This is the title of the PR (by @user-2) [main ← user-2:patch-1]
+
+This is a short description.
+
+Commits:
+ • [85007495] commit 1 - @user1
+ • [b8124acd] commit 2 - User Two
+ • [992841f2] commit 3 - @user1
+
+View pull request: https://github.com/user/repo/pull/1"
+`;
+
+exports[`generateBuildNotes generates build notes correctly for a pull_request_target event 3`] = `
+"Build of PR #1: This is the title of the PR (by @user-2) [main ← user-2:patch-1]
+
+(No description provided)
+
+Commits:
+ • [85007495] commit 1 - @user1
+ • [b8124acd] commit 2 - User Two
+ • [992841f2] commit 3 - @user1
+
+View pull request: https://github.com/user/repo/pull/1"
+`;
+
 exports[`generateBuildNotes generates build notes correctly for a push event 1`] = `
 "Build of branch "main": commit 3
 
