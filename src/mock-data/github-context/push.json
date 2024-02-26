@@ -34,7 +34,7 @@
         },
         "distinct": true,
         "id": "f52fdb2d4a1788b37d0aa491f704844f15751967",
-        "message": "commit 2",
+        "message": "commit 2\n\nThis is the next line of the commit message.",
         "timestamp": "2024-01-01T00:00:00+00:00",
         "tree_id": "bb96f98db7c6f6ad5d0e9f112e2bb4cd8600bddd",
         "url": "https://github.com/user/repo/commit/f52fdb2d4a1788b37d0aa491f704844f15751967"

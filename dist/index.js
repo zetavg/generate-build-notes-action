@@ -29119,7 +29119,7 @@ module.exports = async function generateBuildNotes(
       lines.push('Latest commits:');
       githubContext.payload.commits.toReversed().forEach((commit) => {
         lines.push(
-          ` • [${commit.id.slice(0, 8)}] ${commit.message} - ${[
+          ` • [${commit.id.slice(0, 8)}] ${commit.message.split('\n')[0]} - ${[
             commit.author.username
               ? `@${commit.author.username}`
               : commit.author.name,
@@ -29294,7 +29294,7 @@ async function addPRCommitsInfoToLines(
   lines.push('Commits:');
   commits.forEach((c) => {
     lines.push(
-      ` • [${c.sha.slice(0, 8)}] ${c.commit.message} - ${[
+      ` • [${c.sha.slice(0, 8)}] ${c.commit.message.split('\n')[0]} - ${[
         c.commit.author.username
           ? `@${c.commit.author.username}`
           : c.commit.author.name,

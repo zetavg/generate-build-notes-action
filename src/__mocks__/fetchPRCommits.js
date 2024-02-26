@@ -74,7 +74,7 @@ module.exports = function fetchPRCommits(githubContext, prNumber) {
             email: 'user2@example.com',
             date: '2024-01-01T00:00:00Z',
           },
-          message: 'commit 2',
+          message: 'commit 2\n\nThis is the next line of the commit message.',
           tree: {
             sha: '269ae3febe8225ca978eabdd3c9be362247d6802',
             url: 'https://api.github.com/repos/user/repo/git/trees/269ae3febe8225ca978eabdd3c9be362247d6802',
